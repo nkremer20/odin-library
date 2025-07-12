@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 .sidebar {
-    background-color: #36454F;
+    background-color: #707070;
     height: 100vh;
     color: whitesmoke;
     display: flex;
@@ -59,11 +59,45 @@ form > button {
     font-size: 16px;
 }
 
-button:hover {
+form > button:hover {
     cursor: pointer;
     background-color: #2E8B57;
 }
 
 .library {
-    background-color: whitesmoke;
+    background-color: #F9F6EE;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 150px);
+    gap: 20px;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.library > div {
+    border-left: 10px solid #8A9A5B;
+    border-radius: 8px;
+    height: 150px;
+    background-color: #e4e4e4;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
+
+.book-info{
+    padding: 10px;
+}
+
+.book-info > h4 {
+    margin-bottom: 5px;
+}
+
+.library > div > button {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    height: 30px;
+    border-radius: 8px;
+    align-self: end;
+    background-color: red;
+    color: white;
+    border: none;
 }
