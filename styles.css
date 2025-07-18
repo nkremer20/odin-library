@@ -47,6 +47,14 @@ input[type=text] {
     margin-bottom: 20px;
 }
 
+.read-radio{
+    margin-top: 10px;
+}
+
+.read-radio > label {
+    font-size: 16px;
+}
+
 form > button {
     padding: 8px;
     border-radius: 8px;
@@ -55,13 +63,16 @@ form > button {
     background-color: #8A9A5B;
     border: none;
     color: whitesmoke;
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 16px;
 }
 
 form > button:hover {
-    cursor: pointer;
     background-color: #2E8B57;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .library {
