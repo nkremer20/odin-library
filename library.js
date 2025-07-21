@@ -9,8 +9,17 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.id = function() {
-    crypto.randomUUID();
+    return window.crypto.randomUUID();
   };
 }
 
+function addBookToLibrary() {
 
+};
+
+window.onload = function () {
+    document.querySelector('form').onsubmit = (e) => {
+        console.log('test');
+        e.preventDefault();
+    }
+};
