@@ -89,7 +89,7 @@ button:hover {
     overflow: scroll;
 }
 
-.library > div {
+.book-card {
     border-left: 10px solid #8A9A5B;
     border-radius: 8px;
     height: 150px;
@@ -106,7 +106,7 @@ button:hover {
     margin-bottom: 5px;
 }
 
-.library > div > button {
+.delete {
     margin-bottom: 10px;
     margin-right: 10px;
     height: 30px;

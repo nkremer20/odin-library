@@ -13,13 +13,31 @@ function Book(title, author, pages, read) {
   };
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(form) {
 
 };
 
-window.onload = function () {
-    document.querySelector('form').onsubmit = (e) => {
-        console.log('test');
+window.onload = () => {
+    const cards = document.querySelectorAll('.book-card')
+    const delete_buttons = document.querySelectorAll('.delete')
+    const form = document.querySelector('form')
+
+    console.log(delete_buttons)
+
+    delete_buttons.forEach(
+        button => {
+            button.addEventListener('click', () => {
+                console.log(button.parentElement.id);
+            })
+        }
+    );
+
+    // console.log(cards);
+
+    form.onsubmit = (e) => {
+        addBookToLibrary();
         e.preventDefault();
     }
+
+
 };
