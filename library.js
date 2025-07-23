@@ -8,19 +8,17 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.id = function() {
-    return window.crypto.randomUUID();
+  this.id = crypto.randomUUID();
   };
-}
 
-function addBookToLibrary(form) {
-
+function addBookToLibrary(new_book) {
+    
 };
 
 window.onload = () => {
-    const cards = document.querySelectorAll('.book-card')
     const delete_buttons = document.querySelectorAll('.delete')
-    const form = document.querySelector('form')
+    const form = document.querySelector('#form')
+    const add_book_btn = document.querySelector('.add-book-btn')
 
     console.log(delete_buttons)
 
@@ -32,12 +30,22 @@ window.onload = () => {
         }
     );
 
-    // console.log(cards);
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-    form.onsubmit = (e) => {
-        addBookToLibrary();
-        e.preventDefault();
-    }
+        // Get the form element values
+        const title = form.elements['title'].value;
+        const author = form.elements['author'].value;
+        const pages = form.elements['pages'].value;
+        const read = form.elements['read'].value;
+
+        // Create new book object
+        const new_book = new Book(title, author, pages, read);
+
+        console.log(new_book);
+
+        form.reset();
+    })
 
 
 };
