@@ -70,9 +70,17 @@ function addBookToLibrary() {
                 book_info.textContent = book[key];
                 card_text.appendChild(book_info);
             }
-
+        }
+        else {
+            new_card.id = book.id;
         }
     }
+
+    // Add delete button to the card
+    const delete_button = document.createElement('button');
+    delete_button.textContent = 'Delete'
+    delete_button.classList.add('delete');
+    new_card.appendChild(delete_button);
         
 };
 
