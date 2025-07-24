@@ -81,24 +81,11 @@ function addBookToLibrary() {
     delete_button.textContent = 'Delete'
     delete_button.classList.add('delete');
     new_card.appendChild(delete_button);
-        
 };
 
 window.onload = () => {
-    const delete_buttons = document.querySelectorAll('.delete')
-    const form = document.querySelector('#form')
-    const add_book_btn = document.querySelector('.add-book-btn')
-
-    console.log(delete_buttons)
-
-    delete_buttons.forEach(
-        button => {
-            button.addEventListener('click', () => {
-                console.log(button.parentElement.id);
-            })
-        }
-    );
-
+    const form = document.querySelector('#form');
+    
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -117,6 +104,16 @@ window.onload = () => {
         addBookToLibrary();
 
         form.reset();
+
+        const delete_buttons = document.querySelectorAll('.delete');
+
+        delete_buttons.forEach(
+        button => {
+            button.addEventListener('click', () => {
+                console.log(button.parentElement.id);
+            })
+        }
+    );
     })
 
 
