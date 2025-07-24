@@ -19,32 +19,60 @@ function addBookToLibrary() {
     const library_div = document.querySelector('.library');
     const new_card = document.createElement('div');
     new_card.classList.add('book-card');
+    library_div.appendChild(new_card);
     
-
-    // Add object info to new card
+    // Create div that holds the card info
     const new_card_info = document.createElement('div');
+    new_card_info.classList.add('book-info');
+    new_card.appendChild(new_card_info);
 
     for (const key of Object.keys(book)) {
-        const card_info = document.createElement('h4')
-        card_info.classList.add('card-text');
         if (key != 'id') {
-            card_info.textContent = key.charAt(0).toUpperCase() + key.slice(1);
-            
-            if (key == 'read') {
+            // Add the h4 element
+            const card_text = document.createElement('h4');
+            card_text.classList.add('card-text');
+            new_card_info.appendChild(card_text);
+            card_text.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)}: ` 
 
+            if (key == 'read') {
+                const read_selector = document.createElement('select');
+                card_text.appendChild(read_selector);
+                if (book[key] == 'yes') {
+                    const yes_option = document.createElement('option');
+                    const yes_option_text = document.createTextNode('Yes');
+                    yes_option.appendChild(yes_option_text);
+                    yes_option.setAttribute('value', 'yes');
+                    read_selector.appendChild(yes_option);
+
+                    const no_option = document.createElement('option');
+                    const no_option_text = document.createTextNode('No');
+                    no_option.appendChild(no_option_text);
+                    no_option.setAttribute('value', 'no');
+                    read_selector.appendChild(no_option);
+                }
+                else {
+                    const no_option = document.createElement('option');
+                    const no_option_text = document.createTextNode('No');
+                    no_option.appendChild(no_option_text);
+                    no_option.setAttribute('value', 'no');
+                    read_selector.appendChild(no_option);
+
+                    const yes_option = document.createElement('option');
+                    const yes_option_text = document.createTextNode('Yes');
+                    yes_option.appendChild(yes_option_text);
+                    yes_option.setAttribute('value', 'yes');
+                    read_selector.appendChild(yes_option);
+                }
             }
             else {
-
+                // Add span to the card text with the book info
+                const book_info = document.createElement('span');
+                book_info.textContent = book[key];
+                card_text.appendChild(book_info);
             }
-        }
-        else {
-            new_card.id = book[key];
-        }
-        new_card_info.appendChild(card_info);
-    }
 
-    new_card.appendChild(new_card_info);
-    library_div.appendChild(new_card);
+        }
+    }
         
 };
 
