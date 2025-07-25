@@ -110,7 +110,18 @@ window.onload = () => {
         delete_buttons.forEach(
         button => {
             button.addEventListener('click', () => {
-                console.log(button.parentElement.id);
+                // Remove book from library array
+                let book_id = button.parentElement.id;
+                const index = library.findIndex(book => book.id === book_id);
+                if (index !== -1) {
+                    library.splice(index, 1);
+                }
+                
+                // Remove card from DOM
+                const remove_book = document.getElementById(book_id);
+                if (remove_book) {
+                    remove_book.remove();
+                };
             })
         }
     );
