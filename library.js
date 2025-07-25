@@ -131,7 +131,14 @@ window.onload = () => {
     read_selectors.forEach(
         selector => {
             selector.addEventListener('change', event => {
-                console.log(event.target.value);
+                const read_value = event.target.value;
+                const book_card_id = selector.parentNode.parentNode.parentNode.id;
+                
+                // Update the read value of the object in the library
+                const index = library.findIndex(book => book.id === book_card_id);
+                if (index !== -1) {
+                    library[index].read = read_value;
+                }
             })
         }
     )
