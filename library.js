@@ -125,7 +125,19 @@ window.onload = () => {
             })
         }
     );
+
+    // Update library object if card read selector is updated
+    const read_selectors = document.querySelectorAll('select');
+    read_selectors.forEach(
+        selector => {
+            selector.addEventListener('change', event => {
+                console.log(event.target.value);
+            })
+        }
+    )
+
     })
 
+    
 
 };
