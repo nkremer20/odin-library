@@ -1,15 +1,15 @@
 const library = [];
 
-function Book(title, author, pages, read) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-  }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
-  };
+// Class for new books
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
+    };
+}
 
 function addBookToLibrary() {
     // Get the last item in the array
@@ -145,6 +145,4 @@ window.onload = () => {
 
     })
 
-    
-// test
 };
